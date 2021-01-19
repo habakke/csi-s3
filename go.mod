@@ -1,5 +1,7 @@
 module github.com/ctrox/csi-s3
 
+go 1.15
+
 require (
 	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
 	github.com/aws/aws-sdk-go v1.14.27 // indirect
