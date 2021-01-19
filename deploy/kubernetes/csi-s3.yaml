@@ -39,7 +39,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ---
 kind: DaemonSet
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 metadata:
   name: csi-s3
   namespace: kube-system
@@ -81,7 +81,7 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: ogre0403/csi-s3:dev
+          image: sebastiansimko/csi-s3:1.2.0s
           args:
             - "--endpoint=$(CSI_ENDPOINT)"
             - "--nodeid=$(NODE_ID)"

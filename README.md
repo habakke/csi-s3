@@ -40,7 +40,7 @@ The region can be empty if you are using some other S3 compatible storage.
 ### 2. Deploy the driver for dynamic provision
 
 ```bash
-cd deploy/kubernetes/dynamic
+cd deploy/kubernetes/
 kubectl create -f provisioner.yaml
 kubectl create -f attacher.yaml
 kubectl create -f csi-s3.yaml
@@ -94,7 +94,8 @@ If something does not work as expected, check the troubleshooting section below.
 #### 1. Deploy the driver for static provision
 
 ```bash
-cd deploy/kubernetes/static
+cd deploy/kubernetes/
+kubectl create -f provisioner.yaml
 kubectl create -f attacher.yaml
 kubectl create -f csi-s3.yaml
 ```
