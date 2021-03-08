@@ -26,17 +26,15 @@ require (
 	github.com/sirupsen/logrus v1.0.5 // indirect
 	github.com/smartystreets/goconvey v0.0.0-20190222223459-a17d461953aa // indirect
 	github.com/spf13/afero v1.2.1 // indirect
-	github.com/stretchr/testify v1.3.0 // indirect
 	github.com/urfave/cli v1.20.0 // indirect
-	golang.org/x/net v0.0.0-20190213061140-3a22650c66bd
-	golang.org/x/sync v0.0.0-20190227155943-e225da77a7e6 // indirect
-	google.golang.org/genproto v0.0.0-20180716172848-2731d4fa720b // indirect
-	google.golang.org/grpc v1.13.0
+	golang.org/x/net v0.0.0-20190311183353-d8887717615a
+	google.golang.org/grpc v1.36.0
 	gopkg.in/airbrake/gobrake.v2 v2.0.9 // indirect
 	gopkg.in/gemnasium/logrus-airbrake-hook.v2 v2.1.2 // indirect
 	k8s.io/apimachinery v0.0.0-20190612205821-1799e75a0719
 	k8s.io/client-go v0.0.0-00010101000000-000000000000
 	k8s.io/kubernetes v1.13.4
+	launchpad.net/gocheck v0.0.0-20140225173054-000000000087 // indirect
 )
 
 replace (
