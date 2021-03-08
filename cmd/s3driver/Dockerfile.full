@@ -44,5 +44,5 @@ RUN cd /tmp \
   && mv /tmp/rclone-*-linux-amd64/rclone /usr/bin \
   && rm -r /tmp/rclone*
 
-COPY ./_output/s3driver /s3driver
+ADD s3driver /s3driver
 ENTRYPOINT ["/s3driver"]

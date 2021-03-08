@@ -18,10 +18,11 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"log"
 	"os"
 
-	"github.com/ctrox/csi-s3/pkg/s3"
+	"github.com/habakke/csi-s3/pkg/s3"
 )
 
 func init() {
@@ -32,10 +33,20 @@ var (
 	endpoint   = flag.String("endpoint", "unix://tmp/csi.sock", "CSI endpoint")
 	nodeID     = flag.String("nodeid", "", "node id")
 	kubeconfig = flag.String("kubeconfig", "", "kubeconfig file path")
+
+	version   string // build version number
+	commit    string // sha1 revision used to build the program
+	buildTime string // when the executable was built
+	buildBy   string // built by username
 )
+
+func getVersionString(name string) string {
+	return fmt.Sprintf("%s %s (%s at %s by %s)", name, version, commit, buildTime, buildBy)
+}
 
 func main() {
 	flag.Parse()
+	log.Print(getVersionString("s3driver"))
 
 	driver, err := s3.NewS3(*nodeID, *endpoint, *kubeconfig)
 	if err != nil {

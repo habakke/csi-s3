@@ -1,24 +1,19 @@
-module github.com/ctrox/csi-s3
+module github.com/habakke/csi-s3
 
 go 1.16
 
 require (
-	github.com/Azure/azure-sdk-for-go v52.3.1+incompatible // indirect
-	github.com/Azure/azure-storage-blob-go v0.13.0 // indirect
-	github.com/Azure/go-autorest/autorest v0.11.18 // indirect
-	github.com/Azure/go-autorest/autorest/azure/auth v0.5.7 // indirect
-	github.com/Azure/go-autorest/autorest/to v0.4.0 // indirect
-	github.com/Azure/go-autorest/autorest/validation v0.3.1 // indirect
 	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
 	github.com/aws/aws-sdk-go v1.14.27 // indirect
-	github.com/container-storage-interface/spec v1.4.0
+	github.com/container-storage-interface/spec v1.1.0
 	github.com/go-ini/ini v1.38.1 // indirect
 	github.com/go-ole/go-ole v1.2.1 // indirect
-	github.com/gofrs/uuid v4.0.0+incompatible // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/jacobsa/fuse v0.0.0-20180417054321-cd3959611bcb // indirect
+	github.com/jinzhu/copier v0.0.0-20180308034124-7e38e58719c3 // indirect
 	github.com/jmespath/go-jmespath v0.0.0-20160202185014-0b12d6b521d8 // indirect
-	github.com/kahing/goofys v0.24.0
+	github.com/kahing/go-xattr v1.1.1 // indirect
+	github.com/kahing/goofys v0.20.0
 	github.com/kubernetes-csi/csi-lib-utils v0.6.1 // indirect
 	github.com/kubernetes-csi/csi-test v2.0.0+incompatible
 	github.com/kubernetes-csi/drivers v1.0.2
@@ -27,15 +22,12 @@ require (
 	github.com/mitchellh/go-ps v0.0.0-20170309133038-4fdf99ab2936
 	github.com/onsi/ginkgo v1.15.1
 	github.com/onsi/gomega v1.11.0
-	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/shirou/gopsutil v0.0.0-20180625081143-4a180b209f5f // indirect
-	github.com/shirou/w32 v0.0.0-20160930032740-bb4de0191aa4 // indirect
 	github.com/sirupsen/logrus v1.0.5 // indirect
 	github.com/smartystreets/goconvey v0.0.0-20190222223459-a17d461953aa // indirect
 	github.com/spf13/afero v1.2.1 // indirect
 	github.com/urfave/cli v1.20.0 // indirect
 	golang.org/x/net v0.0.0-20201202161906-c7110b5ffcbb
-	golang.org/x/sys v0.0.0-20210119212857-b64e53b001e4 // indirect
 	google.golang.org/grpc v1.36.0
 	gopkg.in/airbrake/gobrake.v2 v2.0.9 // indirect
 	gopkg.in/gemnasium/logrus-airbrake-hook.v2 v2.1.2 // indirect
