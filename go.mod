@@ -1,6 +1,6 @@
 module github.com/ctrox/csi-s3
 
-go 1.15
+go 1.16
 
 require (
 	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
@@ -34,8 +34,6 @@ require (
 	google.golang.org/grpc v1.13.0
 	gopkg.in/airbrake/gobrake.v2 v2.0.9 // indirect
 	gopkg.in/gemnasium/logrus-airbrake-hook.v2 v2.1.2 // indirect
-	gopkg.in/ini.v1 v1.41.0
-	k8s.io/api v0.0.0-20190620084959-7cf5895f2711
 	k8s.io/apimachinery v0.0.0-20190612205821-1799e75a0719
 	k8s.io/client-go v0.0.0-00010101000000-000000000000
 	k8s.io/kubernetes v1.13.4
