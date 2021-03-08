@@ -18,8 +18,8 @@ package s3
 
 import (
 	"github.com/container-storage-interface/spec/lib/go/csi"
-	"github.com/ctrox/csi-s3/pkg/k8sutil"
 	"github.com/golang/glog"
+	"github.com/habakke/csi-s3/pkg/k8sutil"
 
 	csicommon "github.com/kubernetes-csi/drivers/pkg/csi-common"
 )

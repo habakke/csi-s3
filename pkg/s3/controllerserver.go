@@ -36,6 +36,10 @@ type controllerServer struct {
 	*csicommon.DefaultControllerServer
 }
 
+//func (cs *controllerServer) ControllerGetVolume(ctx context.Context, req *csi.ControllerGetVolumeRequest) (*csi.ControllerGetVolumeResponse, error) {
+//	return &csi.ControllerGetVolumeResponse{}, status.Error(codes.Unimplemented, "ControllerGetVolumeResponse is not implemented")
+//}
+
 func (cs *controllerServer) CreateVolume(ctx context.Context, req *csi.CreateVolumeRequest) (*csi.CreateVolumeResponse, error) {
 	volumeID := sanitizeVolumeID(req.GetName())
 
@@ -200,7 +204,7 @@ func sanitizeVolumeID(volumeID string) string {
 	volumeID = strings.ToLower(volumeID)
 	if len(volumeID) > 63 {
 		h := sha1.New()
-		io.WriteString(h, volumeID)
+		_, _ = io.WriteString(h, volumeID)
 		volumeID = hex.EncodeToString(h.Sum(nil))
 	}
 	return volumeID

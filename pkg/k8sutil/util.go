@@ -23,6 +23,7 @@ func getRestConfig(kubeconfig string) (*rest.Config, error) {
 	return cfg, nil
 }
 
+// GetK8SClientSet converts kubeconfig string to a kubernetes.Clientset
 func GetK8SClientSet(kubeconfig string) *kubernetes.Clientset {
 
 	config, err := getRestConfig(kubeconfig)
@@ -39,4 +40,3 @@ func GetK8SClientSet(kubeconfig string) *kubernetes.Clientset {
 
 	return clientset
 }
-

@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/ctrox/csi-s3/pkg/s3"
+	"github.com/habakke/csi-s3/pkg/s3"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
@@ -19,7 +19,7 @@ var _ = Describe("S3Driver", func() {
 		if err := os.Remove(socket); err != nil && !os.IsNotExist(err) {
 			Expect(err).NotTo(HaveOccurred())
 		}
-		driver, err := s3.NewS3("test-node", csiEndpoint)
+		driver, err := s3.NewS3("test-node", csiEndpoint, "")
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -45,7 +45,7 @@ var _ = Describe("S3Driver", func() {
 		if err := os.Remove(socket); err != nil && !os.IsNotExist(err) {
 			Expect(err).NotTo(HaveOccurred())
 		}
-		driver, err := s3.NewS3("test-node", csiEndpoint)
+		driver, err := s3.NewS3("test-node", csiEndpoint, "")
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -74,7 +74,7 @@ var _ = Describe("S3Driver", func() {
 		}
 		// Clear loop device so we cover the creation of it
 		os.Remove(s3.S3backerLoopDevice)
-		driver, err := s3.NewS3("test-node", csiEndpoint)
+		driver, err := s3.NewS3("test-node", csiEndpoint, "")
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -101,7 +101,7 @@ var _ = Describe("S3Driver", func() {
 		if err := os.Remove(socket); err != nil && !os.IsNotExist(err) {
 			Expect(err).NotTo(HaveOccurred())
 		}
-		driver, err := s3.NewS3("test-node", csiEndpoint)
+		driver, err := s3.NewS3("test-node", csiEndpoint, "")
 		if err != nil {
 			log.Fatal(err)
 		}

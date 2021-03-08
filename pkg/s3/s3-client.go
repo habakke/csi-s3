@@ -147,7 +147,7 @@ func (client *s3Client) emptyBucket(bucketName string) error {
 
 func (client *s3Client) setBucket(bucket *bucket) error {
 	b := new(bytes.Buffer)
-	json.NewEncoder(b).Encode(bucket)
+	_ = json.NewEncoder(b).Encode(bucket)
 	opts := minio.PutObjectOptions{ContentType: "application/json"}
 	_, err := client.minio.PutObject(bucket.Name, metadataName, b, int64(b.Len()), opts)
 	return err

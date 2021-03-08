@@ -60,6 +60,6 @@ func writes3fsPass(pwFileContent string) error {
 	if err != nil {
 		return err
 	}
-	pwFile.Close()
+	_ = pwFile.Close()
 	return nil
 }
