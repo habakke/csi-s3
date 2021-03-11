@@ -50,7 +50,7 @@ func (rclone *rcloneMounter) Mount(source string, target string) error {
 		// TODO: make this configurable
 		"--vfs-cache-mode=writes",
 	}
-	os.Setenv("AWS_ACCESS_KEY_ID", rclone.accessKeyID)
-	os.Setenv("AWS_SECRET_ACCESS_KEY", rclone.secretAccessKey)
+	_ = os.Setenv("AWS_ACCESS_KEY_ID", rclone.accessKeyID)
+	_ = os.Setenv("AWS_SECRET_ACCESS_KEY", rclone.secretAccessKey)
 	return fuseMount(target, rcloneCmd, args)
 }

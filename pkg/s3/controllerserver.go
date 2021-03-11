@@ -204,7 +204,7 @@ func sanitizeVolumeID(volumeID string) string {
 	volumeID = strings.ToLower(volumeID)
 	if len(volumeID) > 63 {
 		h := sha1.New()
-		io.WriteString(h, volumeID)
+		_, _ = io.WriteString(h, volumeID)
 		volumeID = hex.EncodeToString(h.Sum(nil))
 	}
 	return volumeID

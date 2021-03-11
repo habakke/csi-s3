@@ -71,7 +71,7 @@ func (s3backer *s3backerMounter) Stage(stageTarget string) error {
 	// ensure 'file' device is formatted
 	err := formatFs(s3backerFsType, path.Join(stageTarget, s3backerDevice))
 	if err != nil {
-		fuseUnmount(stageTarget)
+		_ = fuseUnmount(stageTarget)
 	}
 	return err
 }
@@ -87,7 +87,7 @@ func (s3backer *s3backerMounter) Mount(source string, target string) error {
 	err := mount.New("").Mount(device, target, s3backerFsType, []string{})
 	if err != nil {
 		// cleanup fuse mount
-		fuseUnmount(target)
+		_ = fuseUnmount(target)
 		return err
 	}
 	return nil
@@ -126,7 +126,7 @@ func (s3backer *s3backerMounter) writePasswd() error {
 	if err != nil {
 		return err
 	}
-	pwFile.Close()
+	_ = pwFile.Close()
 	return nil
 }
 
