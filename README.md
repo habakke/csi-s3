@@ -254,7 +254,7 @@ make test
 
 ## TODO
 
-* Update driver use CSI 1.3
+* Implement ControllerGetVolume in controllerserver.go (CSI 1.3)
 * Update deployment Yaml files (https://github.com/kubernetes-csi/csi-driver-host-path)
 * Add support for running tests to GitHub Actions (docker run --rm --privileged -v $(pwd):/app --device /dev/fuse ctrox/csi-s3:test)
-
+* Add support for micro image (https://github.com/ctrox/csi-s3/compare/master...mgrechukh:master)

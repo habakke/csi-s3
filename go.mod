@@ -5,7 +5,7 @@ go 1.16
 require (
 	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
 	github.com/aws/aws-sdk-go v1.35.24 // indirect
-	github.com/container-storage-interface/spec v1.2.0
+	github.com/container-storage-interface/spec v1.3.0
 	github.com/cpuguy83/go-md2man/v2 v2.0.0 // indirect
 	github.com/go-ole/go-ole v1.2.1 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
@@ -19,7 +19,7 @@ require (
 	github.com/kylelemons/godebug v0.0.0-20170820004349-d65d576e9348 // indirect
 	github.com/minio/minio-go v0.0.0-20190430232750-10b3660b8f09
 	github.com/mitchellh/go-ps v0.0.0-20170309133038-4fdf99ab2936
-	github.com/onsi/ginkgo v1.15.1
+	github.com/onsi/ginkgo v1.15.2
 	github.com/onsi/gomega v1.11.0
 	github.com/shirou/gopsutil v0.0.0-20180625081143-4a180b209f5f // indirect
 	github.com/sirupsen/logrus v1.6.0 // indirect
@@ -29,15 +29,15 @@ require (
 	google.golang.org/genproto v0.0.0-20201110150050-8816d57aaa9a // indirect
 	google.golang.org/grpc v1.36.0
 	gopkg.in/ini.v1 v1.51.0 // indirect
-	k8s.io/apimachinery v0.20.0
-	k8s.io/client-go v0.20.0
-	k8s.io/mount-utils v0.20.0
+	k8s.io/apimachinery v0.20.5
+	k8s.io/client-go v0.20.5
+	k8s.io/mount-utils v0.20.5
 	k8s.io/utils v0.0.0-20201110183641-67b214c5f920
 )
 
 replace (
-	k8s.io/api => k8s.io/api v0.20.0
-	k8s.io/apimachinery => k8s.io/apimachinery v0.20.0
-	k8s.io/client-go => k8s.io/client-go v0.20.0
-	k8s.io/mount-utils => k8s.io/mount-utils v0.20.0
+	k8s.io/api => k8s.io/api v0.20.5
+	k8s.io/apimachinery => k8s.io/apimachinery v0.20.5
+	k8s.io/client-go => k8s.io/client-go v0.20.5
+	k8s.io/mount-utils => k8s.io/mount-utils v0.20.5
 )
