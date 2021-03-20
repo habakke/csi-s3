@@ -8,7 +8,7 @@ spec:
   capacity:
     storage: 5Gi
   csi:
-    driver: ch.ctrox.csi.s3-driver
+    driver: net.matrise.csi.s3-driver
     volumeAttributes:
       secretNamespace: <USER_SECRET_NAMESPACE>
       secretName: <USER_SECRET_NAME>

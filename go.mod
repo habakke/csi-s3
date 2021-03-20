@@ -4,14 +4,13 @@ go 1.16
 
 require (
 	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
-	github.com/aws/aws-sdk-go v1.14.27 // indirect
-	github.com/container-storage-interface/spec v1.1.0
-	github.com/go-ini/ini v1.38.1 // indirect
+	github.com/aws/aws-sdk-go v1.35.24 // indirect
+	github.com/container-storage-interface/spec v1.2.0
+	github.com/cpuguy83/go-md2man/v2 v2.0.0 // indirect
 	github.com/go-ole/go-ole v1.2.1 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/jacobsa/fuse v0.0.0-20180417054321-cd3959611bcb // indirect
 	github.com/jinzhu/copier v0.0.0-20180308034124-7e38e58719c3 // indirect
-	github.com/jmespath/go-jmespath v0.0.0-20160202185014-0b12d6b521d8 // indirect
 	github.com/kahing/go-xattr v1.1.1 // indirect
 	github.com/kahing/goofys v0.20.0
 	github.com/kubernetes-csi/csi-lib-utils v0.6.1 // indirect
@@ -23,21 +22,22 @@ require (
 	github.com/onsi/ginkgo v1.15.1
 	github.com/onsi/gomega v1.11.0
 	github.com/shirou/gopsutil v0.0.0-20180625081143-4a180b209f5f // indirect
-	github.com/sirupsen/logrus v1.0.5 // indirect
-	github.com/smartystreets/goconvey v0.0.0-20190222223459-a17d461953aa // indirect
-	github.com/spf13/afero v1.2.1 // indirect
-	github.com/urfave/cli v1.20.0 // indirect
+	github.com/sirupsen/logrus v1.6.0 // indirect
+	github.com/smartystreets/goconvey v1.6.4 // indirect
+	github.com/urfave/cli v1.22.2 // indirect
 	golang.org/x/net v0.0.0-20201202161906-c7110b5ffcbb
+	google.golang.org/genproto v0.0.0-20201110150050-8816d57aaa9a // indirect
 	google.golang.org/grpc v1.36.0
-	gopkg.in/airbrake/gobrake.v2 v2.0.9 // indirect
-	gopkg.in/gemnasium/logrus-airbrake-hook.v2 v2.1.2 // indirect
-	k8s.io/apimachinery v0.0.0-20190612205821-1799e75a0719
-	k8s.io/client-go v0.0.0-00010101000000-000000000000
-	k8s.io/kubernetes v1.13.4
+	gopkg.in/ini.v1 v1.51.0 // indirect
+	k8s.io/apimachinery v0.20.0
+	k8s.io/client-go v0.20.0
+	k8s.io/mount-utils v0.20.0
+	k8s.io/utils v0.0.0-20201110183641-67b214c5f920
 )
 
 replace (
-	k8s.io/api => k8s.io/api v0.0.0-20190620084959-7cf5895f2711
-	k8s.io/apimachinery => k8s.io/apimachinery v0.0.0-20190612205821-1799e75a0719
-	k8s.io/client-go => k8s.io/client-go v0.0.0-20190620085101-78d2af792bab
+	k8s.io/api => k8s.io/api v0.20.0
+	k8s.io/apimachinery => k8s.io/apimachinery v0.20.0
+	k8s.io/client-go => k8s.io/client-go v0.20.0
+	k8s.io/mount-utils => k8s.io/mount-utils v0.20.0
 )

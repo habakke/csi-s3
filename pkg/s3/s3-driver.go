@@ -43,7 +43,7 @@ type s3Volume struct {
 
 var (
 	vendorVersion = "v1.1.1"
-	driverName    = "ch.ctrox.csi.s3-driver"
+	driverName    = "net.matrise.csi.s3-driver"
 )
 
 // NewS3 initializes the driver

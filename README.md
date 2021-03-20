@@ -136,7 +136,7 @@ spec:
   capacity:
     storage: 5Gi
   csi:
-    driver: ch.ctrox.csi.s3-driver
+    driver: net.matrise.csi.s3-driver
     volumeAttributes:
       secretNamespace: <SECRET_NAMESPACE_HOLD_YOUR_S3_KEY>
       secretName: <SECRET_NAME_HOLD_YOUR_S3_KEY>
@@ -250,3 +250,11 @@ Currently the driver is tested by the [CSI Sanity Tester](https://github.com/kub
 ```bash
 make test
 ```
+
+
+## TODO
+
+* Update driver use CSI 1.3
+* Update deployment Yaml files (https://github.com/kubernetes-csi/csi-driver-host-path)
+* Add support for running tests to GitHub Actions (docker run --rm --privileged -v $(pwd):/app --device /dev/fuse ctrox/csi-s3:test)
+

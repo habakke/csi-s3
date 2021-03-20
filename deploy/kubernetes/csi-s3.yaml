@@ -52,20 +52,20 @@ spec:
       labels:
         app: csi-s3
     spec:
-      serviceAccount: csi-s3
+      serviceAccountName: csi-s3
       hostNetwork: true
       containers:
         - name: driver-registrar
-          image: quay.io/k8scsi/csi-node-driver-registrar:v1.2.0
+          image: k8s.gcr.io/sig-storage/csi-node-driver-registrar:v2.0.1
           args:
             - "--kubelet-registration-path=$(DRIVER_REG_SOCK_PATH)"
-            - "--v=4"
+            - "--v=5"
             - "--csi-address=$(ADDRESS)"
           env:
             - name: ADDRESS
               value: /csi/csi.sock
             - name: DRIVER_REG_SOCK_PATH
-              value: /var/lib/kubelet/plugins/ch.ctrox.csi.s3-driver/csi.sock
+              value: /var/lib/kubelet/plugins/net.matrise.csi.s3-driver/csi.sock
             - name: KUBE_NODE_NAME
               valueFrom:
                 fieldRef:
@@ -81,11 +81,11 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: sebastiansimko/csi-s3:1.2.0s
+          image: habakke/csi-s3:latest
           args:
             - "--endpoint=$(CSI_ENDPOINT)"
             - "--nodeid=$(NODE_ID)"
-            - "--v=4"
+            - "--v=5"
           env:
             - name: CSI_ENDPOINT
               value: unix:///csi/csi.sock
@@ -109,7 +109,7 @@ spec:
             type: DirectoryOrCreate
         - name: plugin-dir
           hostPath:
-            path: /var/lib/kubelet/plugins/ch.ctrox.csi.s3-driver
+            path: /var/lib/kubelet/plugins/net.matrise.csi.s3-driver
             type: DirectoryOrCreate
         - name: pods-mount-dir
           hostPath:

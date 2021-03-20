@@ -1,5 +1,5 @@
 FROM debian:stretch
-LABEL maintainers="Cyrill Troxler <cyrilltroxler@gmail.com>"
+LABEL maintainers="Håvard Bakke <habakke at matrise.net>"
 LABEL description="csi-s3 slim image"
 
 # s3fs and some other dependencies

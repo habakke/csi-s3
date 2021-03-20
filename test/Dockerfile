@@ -1,5 +1,5 @@
-FROM ctrox/csi-s3:dev-full
-LABEL maintainers="Cyrill Troxler <cyrilltroxler@gmail.com>"
+FROM habakke/csi-s3:latest-full
+LABEL maintainers="Håvard Bakke <habakke at matrise.net>"
 LABEL description="csi-s3 testing image"
 
 RUN apt-get update && \
@@ -7,9 +7,9 @@ RUN apt-get update && \
   git wget make && \
   rm -rf /var/lib/apt/lists/*
 
-RUN wget -q https://dl.google.com/go/go1.16.0.linux-amd64.tar.gz && \
-  tar -xf go1.16.0.linux-amd64.tar.gz && \
-  rm go1.16.0.linux-amd64.tar.gz && \
+RUN wget -q https://dl.google.com/go/go1.16.2.linux-amd64.tar.gz && \
+  tar -xf go1.16.2.linux-amd64.tar.gz && \
+  rm go1.16.2.linux-amd64.tar.gz && \
   mv go /usr/local
 
 ENV GOROOT /usr/local/go

@@ -69,22 +69,22 @@ spec:
       labels:
         app: csi-attacher-s3
     spec:
-      serviceAccount: csi-attacher-sa
+      serviceAccountName: csi-attacher-sa
       containers:
         - name: csi-attacher
-          image: quay.io/k8scsi/csi-attacher:v2.2.0
+          image: k8s.gcr.io/sig-storage/csi-attacher:v3.1.0
           args:
-            - "--v=4"
+            - "--v=5"
             - "--csi-address=$(ADDRESS)"
           env:
             - name: ADDRESS
-              value: /var/lib/kubelet/plugins/ch.ctrox.csi.s3-driver/csi.sock
+              value: /var/lib/kubelet/plugins/net.matrise.csi.s3-driver/csi.sock
           imagePullPolicy: "IfNotPresent"
           volumeMounts:
             - name: socket-dir
-              mountPath: /var/lib/kubelet/plugins/ch.ctrox.csi.s3-driver
+              mountPath: /var/lib/kubelet/plugins/net.matrise.csi.s3-driver
       volumes:
         - name: socket-dir
           hostPath:
-            path: /var/lib/kubelet/plugins/ch.ctrox.csi.s3-driver
+            path: /var/lib/kubelet/plugins/net.matrise.csi.s3-driver
             type: DirectoryOrCreate

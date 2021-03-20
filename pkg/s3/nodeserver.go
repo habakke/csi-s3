@@ -28,7 +28,7 @@ import (
 	"github.com/container-storage-interface/spec/lib/go/csi"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"k8s.io/kubernetes/pkg/util/mount"
+	"k8s.io/mount-utils"
 
 	csicommon "github.com/kubernetes-csi/drivers/pkg/csi-common"
 )
@@ -83,7 +83,7 @@ func (ns *nodeServer) NodePublishVolume(ctx context.Context, req *csi.NodePublis
 	// if volume attribute contain secret name & namespace, retrieve S3 credentials from this secret.
 	// Otherwise, use S3 credentials stored in secret from request.
 	if checkS3SecretExist(attrib) {
-		s3, err = newS3ClientFromSecrets(ns.getExistS3BucketCredentials(attrib["secretNamespace"], attrib["secretName"]))
+		s3, err = newS3ClientFromSecrets(ns.getExistS3BucketCredentials(ctx, attrib["secretNamespace"], attrib["secretName"]))
 	} else {
 		s3, err = newS3ClientFromSecrets(req.GetSecrets())
 	}
@@ -169,7 +169,7 @@ func (ns *nodeServer) NodeStageVolume(ctx context.Context, req *csi.NodeStageVol
 	var s3 *s3Client
 	attrib := req.GetVolumeContext()
 	if checkS3SecretExist(attrib) {
-		s3, err = newS3ClientFromSecrets(ns.getExistS3BucketCredentials(attrib["secretNamespace"], attrib["secretName"]))
+		s3, err = newS3ClientFromSecrets(ns.getExistS3BucketCredentials(ctx, attrib["secretNamespace"], attrib["secretName"]))
 	} else {
 		s3, err = newS3ClientFromSecrets(req.GetSecrets())
 	}
@@ -240,10 +240,10 @@ func (ns *nodeServer) NodeExpandVolume(ctx context.Context, req *csi.NodeExpandV
 	return &csi.NodeExpandVolumeResponse{}, status.Error(codes.Unimplemented, "NodeExpandVolume is not implemented")
 }
 
-func (ns *nodeServer) getExistS3BucketCredentials(namespace, name string) map[string]string {
+func (ns *nodeServer) getExistS3BucketCredentials(ctx context.Context, namespace, name string) map[string]string {
 
 	result := make(map[string]string)
-	secret, err := ns.kclient.CoreV1().Secrets(namespace).Get(name, v1.GetOptions{})
+	secret, err := ns.kclient.CoreV1().Secrets(namespace).Get(ctx, name, v1.GetOptions{})
 
 	if err != nil {
 		glog.V(4).Infof("%s", err.Error())
