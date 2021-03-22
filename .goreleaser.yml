@@ -1,22 +1,42 @@
-project_name: pss
+project_name: csi-s3
 before:
   hooks:
     - go mod tidy
 builds:
   - main: ./cmd/s3driver/main.go
-    id: "s3driver"
+    id: s3driver
     binary: s3driver
     goos:
       - linux
     goarch:
       - amd64
+      - arm64
     env:
       - CGO_ENABLED=0
     mod_timestamp: '{{ .CommitTimestamp }}'
     ldflags:
       - '-extldflags "-static" -X main.version={{ .Version }} -X main.commit={{ .Branch }}@{{ .ShortCommit }} -X main.buildTime={{ .Date }} -X main.builtBy=CI'
+docker_manifests:
+  - name_template: "ghcr.io/habakke/{{ .ProjectName }}:{{ .Version }}"
+    image_templates:
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Version }}-amd64"
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Version }}-arm64"
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Version }}-arm64v8"
+  - name_template: "ghcr.io/habakke/{{ .ProjectName }}:{{ .Env.GITHUB_SHA }}"
+    image_templates:
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Env.GITHUB_SHA }}-amd64"
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Env.GITHUB_SHA }}-arm64"
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Env.GITHUB_SHA }}-arm64v8"
+  - name_template: "ghcr.io/habakke/{{ .ProjectName }}:latest"
+    image_templates:
+      - "ghcr.io/habakke/{{ .ProjectName }}:latest-amd64"
+      - "ghcr.io/habakke/{{ .ProjectName }}:latest-arm64"
+      - "ghcr.io/habakke/{{ .ProjectName }}:latest-arm64v8"
 dockers:
-  - image_templates: ["ghcr.io/habakke/csi-s3:{{ .Version }}", "ghcr.io/habakke/csi-s3:latest"]
+  - image_templates:
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Version }}-amd64"
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Env.GITHUB_SHA }}-amd64"
+      - "ghcr.io/habakke/{{ .ProjectName }}:latest-amd64"
     ids: [s3driver]
     goos: linux
     goarch: amd64
@@ -27,22 +47,43 @@ dockers:
       - --platform=linux/amd64
       - --label=org.opencontainers.image.title={{ .ProjectName }}
       - --label=org.opencontainers.image.description=K8S CSI S3 Driver
-      - --label=org.opencontainers.image.source=https://github.com/habakke/csi-s3
+      - --label=org.opencontainers.image.source=https://github.com/habakke/{{ .ProjectName }}
       - --label=org.opencontainers.image.version={{ .Version }}
       - --label=org.opencontainers.image.created={{ .Date }}
       - --label=org.opencontainers.image.revision={{ .FullCommit }}
-  - image_templates: ["ghcr.io/habakke/csi-s3:{{ .Version }}-full", "ghcr.io/habakke/csi-s3:full"]
+  - image_templates:
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Version }}-arm64"
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Env.GITHUB_SHA }}-arm64"
+      - "ghcr.io/habakke/{{ .ProjectName }}:latest-arm64"
     ids: [s3driver]
     goos: linux
-    goarch: amd64
+    goarch: arm64
     dockerfile: ./cmd/s3driver/Dockerfile.full
     use_buildx: true
     build_flag_templates:
       - --pull
-      - --platform=linux/amd64
+      - --platform=linux/arm64
       - --label=org.opencontainers.image.title={{ .ProjectName }}
       - --label=org.opencontainers.image.description=K8S CSI S3 Driver
-      - --label=org.opencontainers.image.source=https://github.com/habakke/csi-s3
+      - --label=org.opencontainers.image.source=https://github.com/habakke/{{ .ProjectName }}
+      - --label=org.opencontainers.image.version={{ .Version }}
+      - --label=org.opencontainers.image.created={{ .Date }}
+      - --label=org.opencontainers.image.revision={{ .FullCommit }}
+  - image_templates:
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Version }}-arm64v8"
+      - "ghcr.io/habakke/{{ .ProjectName }}:{{ .Env.GITHUB_SHA }}-arm64v8"
+      - "ghcr.io/habakke/{{ .ProjectName }}:latest-arm64v8"
+    ids: [s3driver]
+    goos: linux
+    goarch: arm64
+    dockerfile: ./cmd/s3driver/Dockerfile.full
+    use_buildx: true
+    build_flag_templates:
+      - --pull
+      - --platform=linux/arm64/v8
+      - --label=org.opencontainers.image.title={{ .ProjectName }}
+      - --label=org.opencontainers.image.description=K8S CSI S3 Driver
+      - --label=org.opencontainers.image.source=https://github.com/habakke/{{ .ProjectName }}
       - --label=org.opencontainers.image.version={{ .Version }}
       - --label=org.opencontainers.image.created={{ .Date }}
       - --label=org.opencontainers.image.revision={{ .FullCommit }}
