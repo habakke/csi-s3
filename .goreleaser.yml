@@ -10,8 +10,6 @@ builds:
       - linux
     goarch:
       - amd64
-#    flags:
-#      - trimpath
     env:
       - CGO_ENABLED=0
     mod_timestamp: '{{ .CommitTimestamp }}'
@@ -23,11 +21,12 @@ dockers:
     goos: linux
     goarch: amd64
     dockerfile: ./cmd/s3driver/Dockerfile
+    use_buildx: true
     build_flag_templates:
+      - --pull
       - --platform=linux/amd64
       - --label=org.opencontainers.image.title={{ .ProjectName }}
       - --label=org.opencontainers.image.description=K8S CSI S3 Driver
-      - --label=org.opencontainers.image.url=https://github.com/habakke/csi-s3
       - --label=org.opencontainers.image.source=https://github.com/habakke/csi-s3
       - --label=org.opencontainers.image.version={{ .Version }}
       - --label=org.opencontainers.image.created={{ .Date }}
@@ -37,11 +36,12 @@ dockers:
     goos: linux
     goarch: amd64
     dockerfile: ./cmd/s3driver/Dockerfile.full
+    use_buildx: true
     build_flag_templates:
+      - --pull
       - --platform=linux/amd64
       - --label=org.opencontainers.image.title={{ .ProjectName }}
       - --label=org.opencontainers.image.description=K8S CSI S3 Driver
-      - --label=org.opencontainers.image.url=https://github.com/habakke/csi-s3
       - --label=org.opencontainers.image.source=https://github.com/habakke/csi-s3
       - --label=org.opencontainers.image.version={{ .Version }}
       - --label=org.opencontainers.image.created={{ .Date }}
