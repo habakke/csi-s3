@@ -30,7 +30,7 @@ require (
 	google.golang.org/grpc v1.36.0
 	gopkg.in/ini.v1 v1.51.0 // indirect
 	k8s.io/apimachinery v0.20.5
-	k8s.io/client-go v0.21.0
+	k8s.io/client-go v0.21.1
 	k8s.io/mount-utils v0.20.5
 	k8s.io/utils v0.0.0-20201110183641-67b214c5f920
 )
