@@ -19,7 +19,7 @@ require (
 	github.com/kylelemons/godebug v0.0.0-20170820004349-d65d576e9348 // indirect
 	github.com/minio/minio-go v0.0.0-20190430232750-10b3660b8f09
 	github.com/mitchellh/go-ps v0.0.0-20170309133038-4fdf99ab2936
-	github.com/onsi/ginkgo v1.15.2
+	github.com/onsi/ginkgo v1.16.4
 	github.com/onsi/gomega v1.11.0
 	github.com/shirou/gopsutil v0.0.0-20180625081143-4a180b209f5f // indirect
 	github.com/sirupsen/logrus v1.6.0 // indirect
