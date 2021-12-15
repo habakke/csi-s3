@@ -27,7 +27,7 @@ require (
 	github.com/urfave/cli v1.22.2 // indirect
 	golang.org/x/net v0.0.0-20201202161906-c7110b5ffcbb
 	google.golang.org/genproto v0.0.0-20201110150050-8816d57aaa9a // indirect
-	google.golang.org/grpc v1.36.0
+	google.golang.org/grpc v1.43.0
 	gopkg.in/ini.v1 v1.51.0 // indirect
 	k8s.io/apimachinery v0.20.5
 	k8s.io/client-go v0.21.0
