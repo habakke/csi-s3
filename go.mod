@@ -14,7 +14,7 @@ require (
 	github.com/kahing/go-xattr v1.1.1 // indirect
 	github.com/kahing/goofys v0.20.0
 	github.com/kubernetes-csi/csi-lib-utils v0.6.1 // indirect
-	github.com/kubernetes-csi/csi-test v2.0.0+incompatible
+	github.com/kubernetes-csi/csi-test v2.2.0+incompatible
 	github.com/kubernetes-csi/drivers v1.0.2
 	github.com/kylelemons/godebug v0.0.0-20170820004349-d65d576e9348 // indirect
 	github.com/minio/minio-go v0.0.0-20190430232750-10b3660b8f09
