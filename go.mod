@@ -5,7 +5,7 @@ go 1.16
 require (
 	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
 	github.com/aws/aws-sdk-go v1.35.24 // indirect
-	github.com/container-storage-interface/spec v1.3.0
+	github.com/container-storage-interface/spec v1.7.0
 	github.com/cpuguy83/go-md2man/v2 v2.0.0 // indirect
 	github.com/go-ole/go-ole v1.2.1 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
